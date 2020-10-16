@@ -22,7 +22,7 @@ class DataSpider(scrapy.Spider):
             return scrapy.Request(url, callback=self.parse_concrete_inzerat)
 
     def parse_concrete_inzerat(self, response):
-        name = response.xpath(
-            '//span/text()').get()
-
-        print('Name: ', name)
+        name = response.xpath("//h1//span/text()").getall()
+        price = response.xpath(
+            '//p[@class="heading__side text-right"]/text()').get()
+        print('Name: ', name[1].strip(), price.strip())
