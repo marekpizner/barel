@@ -3,6 +3,8 @@ import time
 import re
 import unicodedata
 
+from ..items import Advertise
+
 
 class DataSpider(scrapy.Spider):
     name = "data"
@@ -66,32 +68,9 @@ class DataSpider(scrapy.Spider):
 
         for row in table:
             # print(row)
+
             row_name = row.xpath('th//text()').get()
             row_name = self.text_to_id(str(row_name))
 
             row_value = row.xpath('td//text()').get()
             print(row_name, row_value)
-
-        # dname = table[3].xpath('th//text()')[0].get().strip()
-        # dispozition = table[3].xpath('td//text()')[0].get().strip()
-        # area = table[4].xpath('td//text()')[0].get().strip()
-        # price_2 = table[5].xpath('td//text()')[0].get().strip()
-        # fees = table[6].xpath('td//text()')[0].get().strip()
-        # caution = table[7].xpath('td//text()')[0].get().strip()
-        # city = table[8].xpath('td//text()')[0].get().strip()
-        # ownership = table[9].xpath('td//text()')[0].get().strip()
-        # building = table[10].xpath('td//text()')[0].get().strip()
-        # floor = table[13].xpath('td//text()')[0].get().strip()
-        # balcony = table[14].xpath('td//text()')[0].get().strip()
-
-        # print('Name: ', name[1].strip(), price.strip())
-        # print('3', dname,  dispozition)
-        # print('4', area)
-        # print('5', price_2)
-        # print('6', fees)
-        # print('7', caution)
-        # print('8', city)
-        # print('9', ownership)
-        # print('10', building)
-        # print('13', floor)
-        # print('14', balcony)
