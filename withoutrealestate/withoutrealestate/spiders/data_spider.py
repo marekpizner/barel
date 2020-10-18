@@ -10,7 +10,7 @@ class DataSpider(scrapy.Spider):
     name = "data"
 
     def start_requests(self):
-        for ids in range(0, 5):
+        for ids in range(0, 2):
             url = f'https://www.bezrealitky.sk/vypis/ponuka-prenajom/byt/bratislavsky-kraj?page={ids}'
             yield scrapy.Request(url=url, callback=self.parse)
 
@@ -65,12 +65,15 @@ class DataSpider(scrapy.Spider):
             '//p[@class="heading__side text-right"]/text()').get()
 
         table = response.xpath('//*[@class="table"]//tr')
+        advertise = Advertise()
 
         for row in table:
             # print(row)
-
             row_name = row.xpath('th//text()').get()
             row_name = self.text_to_id(str(row_name))
 
             row_value = row.xpath('td//text()').get()
-            print(row_name, row_value)
+
+            if row_name in advertise.fields:
+                advertise[row_name] = row_value
+        print(advertise.items())
