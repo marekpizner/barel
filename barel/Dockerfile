@@ -1,4 +1,4 @@
-FROM python:3.7.0-alpine
+FROM python:3.7.9-alpine
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 
@@ -9,7 +9,7 @@ RUN mkdir /code
 WORKDIR /code
 
 COPY requirements.txt /code/
-RUN pip install -r requirements.txt --no-binary :all:
+RUN pip3 install -r requirements.txt --no-binary :all:
 COPY . /code/
 
 ENTRYPOINT ["/code/entrypoint.sh"]

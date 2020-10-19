@@ -2,3 +2,5 @@ env/**
 .DS_Store
 **/__pycache__
 .env.dev
+**/.cache
+.ash_history

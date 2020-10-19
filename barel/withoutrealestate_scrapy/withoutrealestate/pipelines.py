@@ -6,8 +6,10 @@
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
+from map_site.models import Advertise
 
 
 class WithoutrealestatePipeline:
     def process_item(self, item, spider):
+        item.save()
         return item
