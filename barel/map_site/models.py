@@ -5,6 +5,7 @@ from django.db import models
 
 class Advertise(models.Model):
     datetime = models.CharField(max_length=300)
+    name = models.CharField(max_length=300)
     cislo_inzeratu = models.CharField(max_length=300)
     dispozicia = models.CharField(max_length=300)
     plocha = models.CharField(max_length=300)

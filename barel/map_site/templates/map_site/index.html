@@ -1,0 +1,28 @@
+{% if all_advertises %}
+    {% for advertises in all_advertises %}
+     <ul>
+        <li><a>{{ advertises.cislo_inzeratu }}</a></li>
+        <li><a>{{ advertises.dispozicia }}</a></li>
+        <li><a>{{ advertises.plocha }}</a></li>
+        <li><a>{{ advertises.cena }}</a></li>
+        <li><a>{{ advertises.poplatky }}</a></li>
+        <li><a>{{ advertises.vratna_kaucia }}</a></li>
+        <li><a>{{ advertises.mesto }}</a></li>
+        <li><a>{{ advertises.mestska_cast }}</a></li>
+        <li><a>{{ advertises.typ_vlastnictva }}</a></li>
+        <li><a>{{ advertises.typ_budovy }}</a></li>
+        <li><a>{{ advertises.penb }}</a></li>
+        <li><a>{{ advertises.poschodie }}</a></li>
+        <li><a>{{ advertises.balkon }}</a></li>
+        <li><a>{{ advertises.terasa }}</a></li>
+        <li><a>{{ advertises.sklep }}</a></li>
+        <li><a>{{ advertises.lodzia }}</a></li>
+        <li><a>{{ advertises.parkovanie }}</a></li>
+        <li><a>{{ advertises.vytah }}</a></li>
+        <li><a>{{ advertises.garaz }}</a></li>
+    <ul>
+    {% endfor %}
+
+{% else %}
+    <p>No data avaliable</p>
+{% endif %}

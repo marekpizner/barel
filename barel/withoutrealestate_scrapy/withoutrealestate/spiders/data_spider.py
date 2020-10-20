@@ -2,7 +2,7 @@ import scrapy
 import time
 import re
 import unicodedata
-
+import time
 from ..items import AdvertiseItem
 
 
@@ -61,12 +61,10 @@ class DataSpider(scrapy.Spider):
 
     def parse_concrete_inzerat(self, response):
         name = response.xpath("//h1//span/text()").getall()
-        price = response.xpath(
-            '//p[@class="heading__side text-right"]/text()').get()
-
         table = response.xpath('//*[@class="table"]//tr')
         advertise = AdvertiseItem()
-
+        advertise['datetime'] = int(time.time())
+        advertise['name'] = name
         for row in table:
             row_name = row.xpath('th//text()').get()
             row_name = self.text_to_id(str(row_name))
@@ -75,4 +73,5 @@ class DataSpider(scrapy.Spider):
 
             if row_name in advertise.fields:
                 advertise[row_name] = row_value
-        print(advertise.items())
+        # print(advertise.items())
+        yield advertise
