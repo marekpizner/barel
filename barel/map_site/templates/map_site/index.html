@@ -1,6 +1,8 @@
 {% if all_advertises %}
     {% for advertises in all_advertises %}
      <ul>
+        <li><a>{{ advertises.datetime }}</a></li>
+        <li><a>{{ advertises.name }}</a></li>
         <li><a>{{ advertises.cislo_inzeratu }}</a></li>
         <li><a>{{ advertises.dispozicia }}</a></li>
         <li><a>{{ advertises.plocha }}</a></li>

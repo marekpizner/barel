@@ -60,7 +60,8 @@ class DataSpider(scrapy.Spider):
         return text
 
     def parse_concrete_inzerat(self, response):
-        name = response.xpath("//h1//span/text()").getall()
+        name = response.xpath("//h1//span/text()").get()
+        name = self.text_to_id(name)
         table = response.xpath('//*[@class="table"]//tr')
         advertise = AdvertiseItem()
         advertise['datetime'] = int(time.time())

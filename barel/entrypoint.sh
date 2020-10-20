@@ -11,7 +11,7 @@ then
     echo "PostgreSQL started"
 fi
 
-python manage.py reset_db --no-input
+python manage.py reset_db --noinput
 python manage.py makemigrations map_site
 python manage.py migrate
 
