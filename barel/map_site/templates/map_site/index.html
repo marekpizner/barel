@@ -1,30 +1,76 @@
-{% if all_advertises %}
-    {% for advertises in all_advertises %}
-     <ul>
-        <li><a>{{ advertises.datetime }}</a></li>
-        <li><a>{{ advertises.name }}</a></li>
-        <li><a>{{ advertises.cislo_inzeratu }}</a></li>
-        <li><a>{{ advertises.dispozicia }}</a></li>
-        <li><a>{{ advertises.plocha }}</a></li>
-        <li><a>{{ advertises.cena }}</a></li>
-        <li><a>{{ advertises.poplatky }}</a></li>
-        <li><a>{{ advertises.vratna_kaucia }}</a></li>
-        <li><a>{{ advertises.mesto }}</a></li>
-        <li><a>{{ advertises.mestska_cast }}</a></li>
-        <li><a>{{ advertises.typ_vlastnictva }}</a></li>
-        <li><a>{{ advertises.typ_budovy }}</a></li>
-        <li><a>{{ advertises.penb }}</a></li>
-        <li><a>{{ advertises.poschodie }}</a></li>
-        <li><a>{{ advertises.balkon }}</a></li>
-        <li><a>{{ advertises.terasa }}</a></li>
-        <li><a>{{ advertises.sklep }}</a></li>
-        <li><a>{{ advertises.lodzia }}</a></li>
-        <li><a>{{ advertises.parkovanie }}</a></li>
-        <li><a>{{ advertises.vytah }}</a></li>
-        <li><a>{{ advertises.garaz }}</a></li>
-    <ul>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+        <th> name </th>
+        <th> datetime </th>
+        <th> cislo_inzeratu </th>
+        <th> dispozicia </th>
+        <th> plocha </th>
+        <th> cena </th>
+        <th> poplatky </th>
+        <th> vratna_kaucia </th>
+        <th> mesto </th>
+        <th> mestska_cast </th>
+        <th> typ_vlastnictva </th>
+        <th> typ_budovy </th>
+        <th> penb </th>
+        <th> poschodie </th>
+        <th> balkon </th>
+        <th> terasa </th>
+        <th> sklep </th>
+        <th> lodzia </th>
+        <th> parkovanie </th>
+        <th> vytah </th>
+        <th> garaz </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for advertise in advertises %}
+      <tr>
+       <td> {{ advertise.name  }} </td>
+       <td> {{ advertise.datetime  }} </td>
+       <td> {{ advertise.cislo_inzeratu  }} </td>
+       <td> {{ advertise.dispozicia  }} </td>
+       <td> {{ advertise.plocha  }} </td>
+       <td> {{ advertise.cena  }} </td>
+       <td> {{ advertise.poplatky  }} </td>
+       <td> {{ advertise.vratna_kaucia  }} </td>
+       <td> {{ advertise.mesto  }} </td>
+       <td> {{ advertise.mestska_cast  }} </td>
+       <td> {{ advertise.typ_vlastnictva  }} </td>
+       <td> {{ advertise.typ_budovy  }} </td>
+       <td> {{ advertise.penb  }} </td>
+       <td> {{ advertise.poschodie  }} </td>
+       <td> {{ advertise.balkon  }} </td>
+       <td> {{ advertise.terasa  }} </td>
+       <td> {{ advertise.sklep  }} </td>
+       <td> {{ advertise.lodzia  }} </td>
+       <td> {{ advertise.parkovanie  }} </td>
+       <td> {{ advertise.vytah  }} </td>
+       <td> {{ advertise.garaz  }} </td>
+      </tr>
     {% endfor %}
+  </tbody>
+</table>
 
-{% else %}
-    <p>No data avaliable</p>
+{% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
 {% endif %}
