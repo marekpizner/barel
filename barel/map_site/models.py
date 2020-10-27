@@ -25,3 +25,5 @@ class Advertise(models.Model):
     parkovanie = models.CharField(max_length=300)
     vytah = models.CharField(max_length=300)
     garaz = models.CharField(max_length=300)
+    lat = models.CharField(max_length=300, default='')
+    lng = models.CharField(max_length=300, default='')

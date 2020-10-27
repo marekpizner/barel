@@ -63,16 +63,23 @@ class DataSpider(scrapy.Spider):
         name = response.xpath("//h1//span/text()").get()
         name = self.text_to_id(name)
         table = response.xpath('//*[@class="table"]//tr')
+
+        gps_map_url = response.xpath(
+            '//div[@class="b-map mb-40"]/a/@href').extract()
+        gps_map_url = gps_map_url[0].split('loc:')[1]
+        gps_map_url = gps_map_url.split('+')
+
         advertise = AdvertiseItem()
         advertise['datetime'] = int(time.time())
         advertise['name'] = name
+        advertise['lat'] = gps_map_url[0]
+        advertise['lng'] = gps_map_url[1]
+
         for row in table:
             row_name = row.xpath('th//text()').get()
             row_name = self.text_to_id(str(row_name))
-
             row_value = row.xpath('td//text()').get()
 
             if row_name in advertise.fields:
                 advertise[row_name] = row_value
-        # print(advertise.items())
         yield advertise
