@@ -58,6 +58,29 @@
   </tbody>
 </table>
 
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+<div id='map' width="100%" style='height:800px'></div>
+<script>
+    mapboxgl.accessToken = '{{ mapbox_key }}';
+    var map = new mapboxgl.Map({
+     container: 'map',
+     style: 'mapbox://styles/mapbox/satellite-streets-v10',
+     center: [17.1, 48.15],
+     zoom: 12,
+     bearing: 0
+    });
+</script>
+
+{% for advertise in advertises %}
+    <script>
+      var marker = new mapboxgl.Marker()
+                .setLngLat([{{advertise.lng}}, {{advertise.lat}}])
+                .addTo(map);
+    </script>
+{% endfor %}
+
 {% if is_paginated %}
   <ul class="pagination">
     {% if page_obj.has_previous %}
