@@ -16,5 +16,6 @@ python manage.py makemigrations map_site
 python manage.py migrate
 
 cd withoutrealestate_scrapy; scrapy crawl data
+cd ..
 
 exec "$@"
