@@ -1,5 +1,7 @@
 # Barel
-Scraper that download data from realestate web page and vizualize it. 
+A scraper that downloads all data from the real estate web page (`www.bezrealitky.sk`) and visualizes it in the web application. 
+
+The web application is written in django framework. The map in the application is created with mapbox library.
 
 # How to run this application.
 Just run `docker-compose up` and go to `127.0.0.1:8000/all`
@@ -10,4 +12,3 @@ Just run `docker-compose up` and go to `127.0.0.1:8000/all`
 * Postgres 
 * Docker
 * Gunicorn
-* 
