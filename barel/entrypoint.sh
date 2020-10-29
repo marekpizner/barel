@@ -15,4 +15,6 @@ python manage.py reset_db --noinput
 python manage.py makemigrations map_site
 python manage.py migrate
 
+cd withoutrealestate_scrapy; scrapy crawl data
+
 exec "$@"
