@@ -9,7 +9,7 @@ import os
 
 class GenericView(ListView):
     model = Advertise
-    paginate_by = 2
+    paginate_by = 5
     # Default: <app_label>/<model_name>_list.html
     template_name = 'map_site/index.html'
     context_object_name = 'advertises'  # Default: object_list
