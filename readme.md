@@ -1,8 +1,8 @@
 # Barel
-This program is basic scraper, that download data and vizualize it. 
+This program is basic scraper, that download data from realestate web page and vizualize it. 
 
 # How to run this application.
-Just run `docker-compose up`. 
+Just run `docker-compose up` and go to `127.0.0.1:8000/all`
 
 ## Frameworks
 * Django==3.0.9
