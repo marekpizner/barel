@@ -4,3 +4,4 @@ env/**
 .env.dev
 **/.cache
 .ash_history
+**/migrations
