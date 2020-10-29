@@ -1,5 +1,5 @@
 # Barel
-A scraper that downloads all data from the real estate web page (`www.bezrealitky.sk`) and visualizes it in the web application. 
+A scraper that downloads all data from the real estate web page and visualizes it in the web application. 
 
 The web application is written in django framework. The map in the application is created with mapbox library.
 
