@@ -59,8 +59,8 @@
 </table>
 
 
-<script src='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
 <div id='map' width="100%" style='height:800px'></div>
 <script>
     mapboxgl.accessToken = '{{ mapbox_key }}';
@@ -75,7 +75,7 @@
 
 {% for advertise in advertises %}
     <script>
-      var marker = new mapboxgl.Marker()
+      var marker = new mapboxgl.Marker({ color: 'red' })
                 .setLngLat([{{advertise.lng}}, {{advertise.lat}}])
                 .addTo(map);
     </script>
